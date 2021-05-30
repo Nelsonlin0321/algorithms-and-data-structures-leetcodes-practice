@@ -1,6 +1,4 @@
-# # Runtime: 156 ms, faster than 91.97% of Python3 online submissions for Search a 2D Matrix II.
-# # Memory Usage: 20.4 MB, less than 97.73% of Python3 online submissions for Search a 2D Matrix II.
-#
+
 class Solution:
 
     def binary_search(self, nums, target) -> bool:
