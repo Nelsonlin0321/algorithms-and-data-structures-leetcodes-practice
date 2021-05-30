@@ -33,22 +33,6 @@ class Solution(object):
         return res
 
 
-class Solution(object):
-    def lengthOfLongestSubstring(self, s):
-        if len(s) == 0:
-            return 0
-        temp = s[0]
-        max_len = 1
-        for letter in s[1:]:
-            if letter in temp:
-                i = temp.find(letter)
-                temp = temp[i + 1:]
-            temp += letter
-            if len(temp) > max_len:
-                max_len = len(temp)
-        return max_len
-
-
 """
 indext    0    1    2    3   4   5   6   7
 string    a    c    b    d   b   a   c   d
@@ -101,9 +85,45 @@ class Solution:
         return output
 
 
+# Runtime: 76 ms, faster than 39.06% of Python3 online submissions for Longest Substring Without Repeating Characters.
+# Memory Usage: 14.3 MB, less than 78.70% of Python3 online submissions for Longest Substring Without Repeating Characters.
+
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
+        if len(s) == 0:
+            return 0
+
+        window_dict = {char: 0 for char in s}
+        left = 0
+
+        res = -float('inf')
+
+        for right in range(len(s)):
+
+            # 1) 获取 右边的字符
+            right_char = s[right]
+            right += 1
+            # 2) 更新 右边的状态
+            window_dict[right_char] += 1
+            # 3) 满足要求更新记录结果
+            if window_dict[right_char] == 1:
+                res = max(res, right - left)
+
+            # 判断！！！ )当遇到重复的字符时，开始参数移动左边，
+            while window_dict[right_char] > 1:
+                # 4) 获取 左边的字符
+                # 5） 移除左边的字符，更新左边边的状态
+                left_char = s[left]
+                left += 1
+                window_dict[left_char] -= 1
+            # 6）移除玩左边的字符后，满足要求更新记录结果
+            res = max(res, right - left)
+
+        return res
+
+
 if __name__ == "__main__":
     # print(list(range(5,3,-1)))
     s = "abcabcbb"
-    # print(Solution().lengthOfLongestSubstring(s))
-
-    print("abc".find("a"))
+    print(Solution().lengthOfLongestSubstring(s))
