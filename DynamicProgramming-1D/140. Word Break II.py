@@ -41,8 +41,7 @@ class Solution:
             if left_str in set(wordDict) and len(right_break_list) != 0:
 
                 for right_break in right_break_list:
-                    break_list = [left_str]
-                    break_list.append(right_break)
+                    break_list = [left_str, right_break]
                     res.append(" ".join(break_list))
 
         self.dp_break_dict[string] = res
