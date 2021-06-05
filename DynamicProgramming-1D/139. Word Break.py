@@ -6,6 +6,7 @@ class Solution:
     def wordBreak(self, string, wordDict):
 
         # base case
+        # conquer
         if len(string) == 0:
             return True
 
@@ -16,6 +17,7 @@ class Solution:
         if string in set(self.dp_dict):
             return self.dp_dict[string]
 
+        # divide
         for idx in range(1, len(string)):
 
             left_str = string[:idx]
@@ -24,6 +26,7 @@ class Solution:
 
             if left_str in set(wordDict) and self.wordBreak(right_str, wordDict):
                 self.dp_dict[string] = True
+                # combine : any if true return true
                 return self.dp_dict[string]
 
         self.dp_dict[string] = False

@@ -5,11 +5,11 @@ class Solution:
 
     def __init__(self):
         self.dp_break_dict = {}
-        self.res = []
 
     def wordBreak(self, string, wordDict):
 
         # base case
+        # conquer
         if len(string) == 0:
             return []
 
@@ -23,6 +23,7 @@ class Solution:
         dict = ["a","aa"]
         aa - > a a , aa
         """
+        # divide
         if string in set(wordDict):
             res.append(string)
 
@@ -39,7 +40,7 @@ class Solution:
                 right_break_list = self.dp_break_dict[right_str]
 
             if left_str in set(wordDict) and len(right_break_list) != 0:
-
+                # combine
                 for right_break in right_break_list:
                     break_list = [left_str, right_break]
                     res.append(" ".join(break_list))
@@ -54,5 +55,5 @@ wordDict = ["aaaa", "aa", "a"]
 
 solution = Solution()
 res = solution.wordBreak(s, wordDict)
-print(solution.dp_break_dict)
+# print(solution.dp_break_dict)
 print(res)
