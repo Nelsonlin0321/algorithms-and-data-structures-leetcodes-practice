@@ -19,7 +19,7 @@ class BinaryTree:
     def convert(self, nums, root_idx):
 
         root = TreeNode(nums[root_idx])
-
+        # print(root.val)
         left_idx = root_idx * 2 + 1
         right_idx = left_idx + 1
 
@@ -59,10 +59,14 @@ class LinkedList:
 
 
 if __name__ == "__main__":
-    head = [1, 2, 3, 4, 5]
-    linked_list = LinkedList()
-    linked_list = linked_list(head)
-
-    while linked_list is not None:
-        print(linked_list.val)
-        linked_list = linked_list.next
+    # head = [1, 2, 3, 4, 5]
+    # linked_list = LinkedList()
+    # linked_list = linked_list(head)
+    #
+    # while linked_list is not None:
+    #     print(linked_list.val)
+    #     linked_list = linked_list.next
+    null = None
+    head = [3, 9, 20, null, null, 15, 7]
+    binary_tree = BinaryTree()
+    binary_tree = binary_tree(head)
