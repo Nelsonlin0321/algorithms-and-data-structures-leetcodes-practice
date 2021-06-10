@@ -31,7 +31,7 @@ class BinaryTree:
         if right_idx <= len(nums) - 1 and nums[right_idx] is not None:
             root.right = self.convert(nums, right_idx)
         else:
-            root.left = None
+            root.right = None
         return root
 
 
