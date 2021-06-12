@@ -1,2 +1,2 @@
 # AlgoPractice
-The  Algorithm Practice for coding interview 
+The  Algorithm Practice for Algorithm Engineer
