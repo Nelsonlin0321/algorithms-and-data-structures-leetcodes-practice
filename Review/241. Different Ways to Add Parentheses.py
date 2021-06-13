@@ -62,10 +62,10 @@ class Solution:
                 left_expr = expression[:idx]
                 right_expr = expression[idx + 1:]
 
-                # how to combine ?
                 left_res = self.diffWaysToCompute(left_expr)
                 right_res = self.diffWaysToCompute(right_expr)
 
+                # how to combine ?
                 for left_num in left_res:
                     for right_num in right_res:
                         res.append(self.calculate(left_num, right_num, opr))

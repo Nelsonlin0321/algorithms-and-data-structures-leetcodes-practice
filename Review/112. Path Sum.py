@@ -18,21 +18,21 @@ class Solution:
         if root is None:
             return False
 
-        # conquer
+        # conquer: 定义最小的问题，并且解决
         if root.left is None and root.right is None and root.val == targetSum:
             return True
 
         left_has_path_sum = False
         right_has_path_sum = False
 
-        # divide
+        # divide： 拆分左右边
         if root.left is not None:
             left_has_path_sum = self.hasPathSum(root.left, targetSum - root.val)
 
         if root.right is not None:
             right_has_path_sum = self.hasPathSum(root.right, targetSum - root.val)
 
-        # combine
+        # combine # 当任意一个是TRUE 的时候， 就返回True
         return left_has_path_sum or right_has_path_sum
 
 

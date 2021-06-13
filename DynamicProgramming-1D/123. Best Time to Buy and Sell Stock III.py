@@ -1,11 +1,17 @@
 from typing import List
 
 
-#
+#https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/submissions/
 # Runtime: 1744 ms, faster than 12.93% of Python3 online submissions for Best Time to Buy and Sell Stock III.
 # Memory Usage: 36.2 MB, less than 11.62% of Python3 online submissions for Best Time to Buy and Sell Stock III.
 
 class Solution:
+
+    """
+    Runtime: 1776 ms, faster than 13.08% of Python3 online submissions for Best Time to Buy and Sell Stock III.
+    Memory Usage: 36.2 MB, less than 11.21% of Python3 online submissions for Best Time to Buy and Sell Stock III.
+    """
+
     def maxProfit(self, prices: List[int]) -> int:
         max_profit = 0
 
@@ -31,8 +37,8 @@ class Solution:
 
             # if cash_1[t-1]!=
             hold_2[t] = max(hold_2[t - 1], cash_1[t - 1] - prices[t])
-            cash_2[t] = max(cash_2[t - 1], prices[t] + hold_2[t - 1], cash_1[t])
-            max_profit = max(max_profit, cash_2[t])
+            cash_2[t] = max(cash_2[t - 1], prices[t] + hold_2[t - 1])
+            max_profit = max(max_profit, cash_2[t], cash_1[t]) #
 
         return max_profit
 

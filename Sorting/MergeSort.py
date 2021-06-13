@@ -2,7 +2,7 @@ class Solution(object):
 
     def mergeSort(self, arr):
         # base case
-        # conqure
+        # conquer
         if len(arr) <= 1:
             return arr
 

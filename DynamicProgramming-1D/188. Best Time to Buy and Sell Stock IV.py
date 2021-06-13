@@ -12,29 +12,40 @@ class Solution:
         if len(prices) <= 1:
             return 0
 
-        # 0 for hold
-        # 1 for cash
+        res = 0
+
+        # 1 for hold
+        # 0 for cash
         # dp[ day ] [hold or cash][k]
 
-        dp[0][0][0] = -prices[0]
+        dp[0][1][0] = -prices[0]
+
         # hold
-        for th in range(k):
-            dp[0][1][th] = 0  # cash
-            # dp[0][0][th] = -prices[0]
+        for k_th in range(k):
+            dp[0][0][k_th] = 0  # cash
+            # dp[0][1][k_th] = -prices[0]  # hold
 
         for t in range(1, len(prices)):
-            for th in range(k):
+
+            for k_th in range(1,k):
                 # hold - > 昨天的hold， 今天买入，
-                dp[t][0][th] = max(dp[t - 1][0][th], dp[t][1][th - 1] - prices[t])  # hold
-                # print(dp[t][0][th])
-                dp[t][1][th] = max(dp[t - 1][1][th], prices[t] + dp[t - 1][0][th])  # cash
+                dp[t][1][k_th] = max(dp[t - 1][1][k_th],  # 昨天的hold
 
-        res = dp[-1][1][-1]
+                                     dp[t - 1][0][k_th - 1] - prices[t]  # 今天买入: 上一次交易的cash - prices
+                                     , - prices[t]
+                                     )
 
-        return int(res)
+                # cash ——> 昨天的cash， 今天卖出
+                dp[t][0][k_th] = max(dp[t - 1][0][k_th],  # 昨天的cash
+
+                                     prices[t] + dp[t - 1][1][k_th], 0)  # 今天卖出
+
+                res = max(res, dp[t][0][k_th])
+        print(dp)
+        return res
 
 
 k = 2
-prices = [3, 2, 6, 5, 0, 3]
-
+prices = [3, 3, 5, 0, 0, 3, 1, 4]
+solution = Solution()
 print(Solution().maxProfit(k, prices))
