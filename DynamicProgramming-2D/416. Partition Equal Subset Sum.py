@@ -6,7 +6,6 @@ class Solution:
     Runtime: 2824 ms, faster than 29.44% of Python3 online submissions for Partition Equal Subset Sum.
     Memory Usage: 30.3 MB, less than 40.40% of Python3 online submissions for Partition Equal Subset Sum.
     """
-
     def canPartition(self, nums: List[int]) -> bool:
 
         # base case

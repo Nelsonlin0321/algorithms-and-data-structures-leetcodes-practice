@@ -8,6 +8,28 @@ class TreeNode:
         self.right = right
 
 
+def array_binary_tree(nums: List[int]):
+    def convert(nums, root_idx):
+
+        root = TreeNode(nums[root_idx])
+        # print(root.val)
+        left_idx = root_idx * 2 + 1
+        right_idx = left_idx + 1
+
+        if left_idx <= len(nums) - 1 and nums[left_idx] is not None:
+            root.left = convert(nums, left_idx)
+        else:
+            root.left = None
+
+        if right_idx <= len(nums) - 1 and nums[right_idx] is not None:
+            root.right = convert(nums, right_idx)
+        else:
+            root.right = None
+        return root
+
+    return convert(nums, 0)
+
+
 class BinaryTree:
 
     def __call__(self, array):
