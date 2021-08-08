@@ -108,6 +108,17 @@ class Solution:
 
         return dp_dict[amount]
 
+""" the simplest solution"""
+class Solution:
+    def coinChange(self, coins: List[int], amount: int) -> int:
+
+        dp = [0] + [10001] * amount
+
+        for coin in coins:
+            for amt in range(coin, amount + 1):
+                dp[amt] = min(dp[amt], dp[amt - coin] + 1)
+
+        return dp[-1] if dp[-1] != 10001 else -1
 
 if __name__ == "__main__":
     coins = [2]
