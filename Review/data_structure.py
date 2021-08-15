@@ -8,17 +8,8 @@ class TreeNode:
         self.right = right
 
 
-
-
-class BinaryTree:
-
-    def __call__(self, array):
-        return self.arrayToBST(array)
-
-    def arrayToBST(self, nums: List[int]) -> TreeNode:
-        return self.convert(nums, 0)
-
-    def convert(self, nums, root_idx):
+def array_to_binaryTree(nums: List[int]):
+    def convert(nums, root_idx):
 
         root = TreeNode(nums[root_idx])
         # print(root.val)
@@ -26,15 +17,20 @@ class BinaryTree:
         right_idx = left_idx + 1
 
         if left_idx <= len(nums) - 1 and nums[left_idx] is not None:
-            root.left = self.convert(nums, left_idx)
+            root.left = convert(nums, left_idx)
         else:
             root.left = None
 
         if right_idx <= len(nums) - 1 and nums[right_idx] is not None:
-            root.right = self.convert(nums, right_idx)
+            root.right = convert(nums, right_idx)
         else:
             root.right = None
         return root
+
+    if nums:
+        return convert(nums, 0)
+    else:
+        return None
 
 
 # Definition for singly-linked list.
@@ -70,5 +66,3 @@ if __name__ == "__main__":
     #     linked_list = linked_list.next
     null = None
     head = [3, 9, 20, null, null, 15, 7]
-    binary_tree = BinaryTree()
-    binary_tree = binary_tree(head)
