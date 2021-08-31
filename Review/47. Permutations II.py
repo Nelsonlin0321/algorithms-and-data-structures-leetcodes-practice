@@ -60,6 +60,8 @@ class Solution:
                 """
                 !!!!!!判断这个数字是否与上个数字相同，假如上个数字已经用过!!! 那么当前就得pass
                 """
+
+                # used_dict[idx- 1]: because 1, 1 ,1 should be one combination, they should be used once.
                 if idx > 0 and nums[idx] == nums[idx - 1] and used_dict[idx- 1]:
                     continue
 
