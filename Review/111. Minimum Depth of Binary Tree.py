@@ -1,7 +1,4 @@
-from utils import random_question
-
-# print(random_question())  # 111. Minimum Depth of Binary Tree.py
-
+# https://leetcode.com/problems/minimum-depth-of-binary-tree/
 from data_structure import TreeNode, BinaryTree
 
 
