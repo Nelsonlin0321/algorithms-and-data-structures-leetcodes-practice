@@ -19,7 +19,7 @@ class Solution:
         while len(queue) != 0:
 
             size = len(queue)
-            # breatch function
+            # breath function - important to define the size to breath search
             for idx in range(size):
 
                 node = queue[idx]
@@ -38,6 +38,7 @@ class Solution:
 
             deepth += 1
             queue = queue[size:]
+            # pop out the size that have been searched
 
 
 if __name__ == "__main__":

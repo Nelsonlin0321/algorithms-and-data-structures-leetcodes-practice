@@ -1,19 +1,23 @@
+var_list = [2, 3, 4, 5, 321, 1]
 
-
-var_list = [2,3,4,5,321,1]
 
 class Solution(object):
-    def bubble_sort(self,numbers):
+    def bubble_sort(self, numbers):
         """
         :type numbers: List[int]
         """
-        for end_index in list(range(len(numbers)))[::-1]:
-            for index in range(end_index):
-                first_number = numbers[index]
-                second_number = numbers[index+1]
-                if second_number < first_number:
-                    numbers[index] = second_number
-                    numbers[index+1] = first_number
+
+        for i in range(
+                len(numbers) - 1,  # start index
+                0,
+                -1
+        ):
+            for j in range(i): # important: if the start idx = 5, so j will be 4
+                num_1 = numbers[j + 1]
+                num_2 = numbers[j]
+                if num_1 < num_2:
+                    numbers[j + 1], numbers[j] = numbers[j], numbers[j + 1]
+
 
 solution = Solution()
 solution.bubble_sort(var_list)
