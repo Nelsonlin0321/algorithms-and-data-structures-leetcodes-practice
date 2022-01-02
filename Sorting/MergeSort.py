@@ -12,6 +12,7 @@ class Solution(object):
         right_arr = arr[idx:]
 
         # conqure / combine
+        # importance: further to split by recursive mergeSort function
         return self.merge(self.mergeSort(left_arr), self.mergeSort(right_arr))
 
     def merge(self, left_arr, right_arr):

@@ -9,7 +9,7 @@ class Solution(object):
 
         for i in range(
                 len(numbers) - 1,  # start index
-                0,
+                0, # 0 is not included
                 -1
         ):
             for j in range(i): # important: if the start idx = 5, so j will be 4

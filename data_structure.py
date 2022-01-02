@@ -8,11 +8,10 @@ class TreeNode:
         self.right = right
 
 
-def array_binary_tree(nums: List[int]):
+def convert_array_binary_tree(nums: List[int]):
     def convert(nums, root_idx):
 
         root = TreeNode(nums[root_idx])
-        # print(root.val)
         left_idx = root_idx * 2 + 1
         right_idx = left_idx + 1
 
