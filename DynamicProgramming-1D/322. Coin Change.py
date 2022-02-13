@@ -22,7 +22,7 @@ class Solution:
         return min(coins_change_list)
 
 
-# BFS
+# BFS-Other
 # Time Limit Exceeded
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
