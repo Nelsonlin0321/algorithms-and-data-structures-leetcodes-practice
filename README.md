@@ -1,2 +1,2 @@
 # AlgoPractice
-The  Algorithm Practice for Algorithm Engineer
+The  LeetCode Practice for Algorithm Engineer
