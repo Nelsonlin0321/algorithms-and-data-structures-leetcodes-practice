@@ -32,6 +32,29 @@ class Solution:
         return head
 
 
+
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        fast = head
+        slow = head
+        
+        for _ in range(n+1):
+            if fast:
+                fast = fast.next
+            else:
+                return head.next
+
+        while fast:
+            slow = slow.next
+            fast = fast.next
+        
+        temp = slow.next.next
+        slow.next = temp
+        
+        return head
+
+        
+
 if __name__ == "__main__":
     pass
 

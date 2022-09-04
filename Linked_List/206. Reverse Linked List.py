@@ -30,6 +30,27 @@ class Solution:
         return prev
 
 
+
+
+
+
+from typing import Optional
+
+class Solution:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+
+        prev = None
+        curr = head
+        
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr
+            curr = temp
+        
+        return prev
+
+
 if __name__ == "__main__":
     head = [1, 2, 3, 4, 5]
     reversed_linked_list = LinkedList()(head)
