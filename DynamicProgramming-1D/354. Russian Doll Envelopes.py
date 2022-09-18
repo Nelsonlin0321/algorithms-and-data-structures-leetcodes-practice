@@ -4,18 +4,7 @@ from typing import List
 class Solution:
 
     def maxEnvelopes(self, envelopes: List[List[int]]) -> int:
-
-        # sorted
-        # # Time Limit Exceeded 83 / 87 test cases passed.
-        # for i in range(len(envelopes) - 1, -1, -1):
-        #     for j in range(i):  # not include i
-        #         first = envelopes[j + 1]
-        #         second = envelopes[j]
-        #
-        #         if first[0] * first[1] < second[0] * second[1]:
-        #             envelopes[j + 1] = second
-        #             envelopes[j] = first
-
+        
         envelopes = sorted(envelopes, key=lambda x: x[0] * x[1])
 
         dp = [1 for _ in range(len(envelopes))]
