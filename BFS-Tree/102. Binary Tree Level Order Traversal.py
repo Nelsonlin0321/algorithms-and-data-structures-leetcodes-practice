@@ -34,7 +34,15 @@ class BinaryTree:
             root.left = None
         return root
 
-
+"""
+Submission Detail
+34 / 34 test cases passed.
+Status: Accepted
+Runtime: 36 ms
+Memory Usage: 14.7 MB
+You are here!
+Your runtime beats 93.19 % of python3 submissions.
+"""
 class Solution:
 
     def levelOrder(self, root: TreeNode) -> List[List[int]]:

@@ -1,3 +1,13 @@
+"""
+Submission Detail
+42 / 42 test cases passed.
+Status: Accepted
+Runtime: 72 ms
+Memory Usage: 14.5 MB
+Submitted: 1 year, 3 months ago
+You are here!
+Your runtime beats 35.38 % of python3 submissions.
+"""
 class Solution:
 
     def __init__(self):
