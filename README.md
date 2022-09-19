@@ -1,2 +1,2 @@
-# AlgoPractice
-The  LeetCode Practice for Algorithm Engineer
+# LeetCode
+The  LeetCode practice to be a pro software engineer
