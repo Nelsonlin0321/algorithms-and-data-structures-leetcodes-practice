@@ -35,10 +35,13 @@ class Solution:
         return False
 
     def backtrack(self, path, row_id, col_id, word_index):
-        # print(path)
+        """
+        path: the points that have been visited
+        row_id,col_id: the current position
+        word_index: the index that next position to match
+        """
+
         if len(path) == len(self.word):
-            # print(path)
-            # print(self.word)
             return True
 
         """if not still satisfy, continue to loop for the word[word_index]"""
