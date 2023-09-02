@@ -15,7 +15,7 @@ class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
 
         # base case
-        if len(intervals) <= 0:
+        if len(intervals) <= 1:
             return 0
 
         # sort
