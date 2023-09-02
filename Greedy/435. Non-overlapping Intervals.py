@@ -2,11 +2,11 @@ from typing import List
 """
 Runtime
 Details
-1231ms
-Beats 81.19%of users with Python3
+1164ms
+Beats 87.98%of users with Python3
 Memory
 Details
-55.41MB
+55.45MB
 Beats 10.52%of users with Python3
 """
 
