@@ -44,7 +44,7 @@ class Solution:
         dp = [1]*len(nums)
 
         max_length = 1
-        # loof for each status: the length
+        # loop for each status: the length
         for i in range(1, len(nums)):
             # transition
             cur_num = nums[i]
