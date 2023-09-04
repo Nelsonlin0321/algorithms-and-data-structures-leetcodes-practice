@@ -3,12 +3,12 @@ from typing import List
 """
 Runtime
 Details
-1234ms
-Beats 44.36%of users with Python3
+1188ms
+Beats 58.11%of users with Python3
 Memory
 Details
-62.61MB
-Beats 73.58%of users with Python3
+62.78MB
+Beats 44.30%of users with Python3
 """
 
 
@@ -28,7 +28,6 @@ class Solution:
 
         points = sorted(points, key=lambda x: x[0])
         points = sorted(points, key=lambda x: x[1])
-        print(f"points:{points}")
 
         left_point = points[0]
         i = 1
