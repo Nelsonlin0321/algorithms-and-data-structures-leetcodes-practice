@@ -1,9 +1,12 @@
 """
-Submission Detail
-811 / 811 test cases passed.
-	Status: Accepted
-Runtime: 90 ms
-Memory Usage: 16.1 MB
+Runtime
+Details
+92ms
+Beats 15.75%of users with Python3
+Memory
+Details
+16.24MB
+Beats 78.66%of users with Python3
 """
 
 

@@ -1,3 +1,14 @@
+"""
+Runtime
+Details
+903ms
+Beats 18.89%of users with Python3
+Memory
+Details
+16.32MB
+Beats 44.55%of users with Python3
+"""
+
 
 def is_symmetric(number):
     str_number = str(number)
