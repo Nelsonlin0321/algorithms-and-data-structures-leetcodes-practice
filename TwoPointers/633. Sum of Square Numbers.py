@@ -38,4 +38,4 @@ if __name__ == "__main__":
     end = time.time()
     spent = round((end-start)*1000, 2)
     print(res)
-    print(f"Spent:{spent} s")
+    print(f"Spent:{spent} ms")
