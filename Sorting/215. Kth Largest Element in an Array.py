@@ -3,6 +3,7 @@ from typing import List
 TimeOut
 """
 
+
 def partition(nums, left, right):
     pivot = nums[right]
 
@@ -50,6 +51,7 @@ Details
 Beats 34.88%of users with Python3
 """
 
+
 class Solution(object):
     def findKthLargest(self, nums, k):
         """
@@ -60,21 +62,21 @@ class Solution(object):
         min_value = min(nums)
         max_value = max(nums)
 
-        bucket_list = [[] for _ in range(min_value,max_value+1)]
-        
+        bucket_list = [[] for _ in range(min_value, max_value+1)]
+
         for num in nums:
             bucket_list[num-min_value].append(num)
-
 
         sort_list = []
 
         for bucket in bucket_list[::-1]:
-            if len(sort_list)<k:
+            if len(sort_list) < k:
                 sort_list.extend(bucket)
             else:
                 break
-        
+
         return sort_list[k-1]
+
 
 if __name__ == "__main__":
     nums = [3, 2, 1, 5, 6, 4]

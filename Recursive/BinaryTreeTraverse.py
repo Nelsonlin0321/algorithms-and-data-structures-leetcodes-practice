@@ -42,11 +42,13 @@ def preOderTraverse(root):
         preOderTraverse(root.left)
         preOderTraverse(root.right)
 
+
 def inOderTraverse(root):
     if root is not None:
         preOderTraverse(root.left)
         preOderTraverse(root.right)
         print(root.val)
+
 
 def postOderTraverse(root):
     if root is not None:
