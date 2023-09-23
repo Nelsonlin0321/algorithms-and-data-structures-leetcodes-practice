@@ -31,27 +31,33 @@ def convert_array_binary_tree(nums: List[int]):
 
 
 null = None
-list = [1, 2, 3, 5, 5, null, 6, null, null, 7, 8]
+nodes = [3, 9, 20, null, null, 15, 7]
 
-root = convert_array_binary_tree(list)
+root = convert_array_binary_tree(nodes)
 
 
 def preOderTraverse(root):
     if root is not None:
-        print(root.val)
+        print(root.val, " ")
         preOderTraverse(root.left)
         preOderTraverse(root.right)
 
 
 def inOderTraverse(root):
     if root is not None:
-        preOderTraverse(root.left)
-        preOderTraverse(root.right)
-        print(root.val)
+        inOderTraverse(root.left)
+        print(root.val, " ")
+        inOderTraverse(root.right)
 
 
 def postOderTraverse(root):
     if root is not None:
-        preOderTraverse(root.left)
-        preOderTraverse(root.right)
-        print(root.val)
+        postOderTraverse(root.left)
+        postOderTraverse(root.right)
+        print(root.val, " ")
+
+
+if __name__ == "__main__":
+    # preOderTraverse(root)
+    # inOderTraverse(root)
+    postOderTraverse(root)
