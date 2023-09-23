@@ -7,12 +7,12 @@ from data_structure import BinaryTree, TreeNode
 class Solution:
 
     def minDepth(self, root: TreeNode) -> int:
-        deepth = 0
+        depth = 0
         # base case
         if root is None:
-            return deepth
+            return depth
 
-        deepth = 1
+        depth = 1
         # init
         queue = [root]
 
@@ -28,7 +28,7 @@ class Solution:
                 right = node.right
 
                 if left is None and right is None:
-                    return deepth
+                    return depth
 
                 if left is not None:
                     queue.append(left)
@@ -36,7 +36,7 @@ class Solution:
                 if right is not None:
                     queue.append(right)
 
-            deepth += 1
+            depth += 1
             queue = queue[size:]
             # pop out the size that have been searched
 

@@ -8,6 +8,7 @@ Runtime: 468 ms, faster than 94.47% of Python3 online submissions for Minimum De
 Memory Usage: 49 MB, less than 85.75% of Python3 online submissions for Minimum Depth of Binary Tree.
 """
 
+
 class Solution:
 
     def minDepth(self, root: TreeNode) -> int:
@@ -42,6 +43,4 @@ class Solution:
                     queue.append(right)
 
             deepth += 1
-            queue = queue[size:] # reduce
-
-
+            queue = queue[size:]  # reduce
