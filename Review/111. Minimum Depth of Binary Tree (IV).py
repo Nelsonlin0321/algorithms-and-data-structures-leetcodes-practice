@@ -1,8 +1,4 @@
 from queue import Queue
-from typing import Optional
-import sys
-sys.path.insert(0, "./../")
-# Definition for a binary tree node.
 
 
 class TreeNode:
@@ -14,28 +10,30 @@ class TreeNode:
 
 class Solution:
     def minDepth(self, root: TreeNode) -> int:
-        if not root:
+
+        # base case
+        if root is None:
             return 0
-        q = Queue()
-        q.put(root)
-        # root 本身就是一层，depth 初始化为 1
+
+        queue = Queue()
+        queue.put(root)
         depth = 1
 
-        while not q.empty():
+        while not queue.empty():
+            size = queue.qsize()
 
-            sz = q.qsize()
-            # 将当前队列中的所有节点向四周扩散
-            for i in range(sz):
-                cur = q.get()
-                # 判断是否到达终点
-                if not cur.left and not cur.right:
+            for _ in range(size):
+                node = queue.get()
+
+                if not node.left and not node.right:
                     return depth
-                # 将 cur 的相邻节点加入队列
-                if cur.left:
-                    q.put(cur.left)
-                if cur.right:
-                    q.put(cur.right)
-            # 这里增加步数
+
+                if node.left:
+                    queue.put(node.left)
+
+                if node.right:
+                    queue.put(node.right)
+
             depth += 1
 
         return depth

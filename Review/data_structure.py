@@ -8,7 +8,7 @@ class TreeNode:
         self.right = right
 
 
-def array_to_binaryTree(nums: List[int]):
+def convert_array_binary_tree(nums: List[int]):
     def convert(nums, root_idx):
 
         root = TreeNode(nums[root_idx])
@@ -55,6 +55,7 @@ class LinkedList:
         root_node.next = self.convert(nums[1:])
         return root_node
 
+
 class BinaryTree:
 
     def __call__(self, array):
@@ -92,4 +93,3 @@ if __name__ == "__main__":
     #     linked_list = linked_list.next
     null = None
     head = [3, 9, 20, null, null, 15, 7]
-

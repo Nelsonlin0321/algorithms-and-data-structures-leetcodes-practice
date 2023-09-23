@@ -91,4 +91,3 @@ if __name__ == "__main__":
     head = [3, 9, 20, null, null, 15, 7]
     binary_tree = BinaryTree()
     binary_tree = binary_tree(head)
-
