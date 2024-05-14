@@ -28,7 +28,22 @@ class Solution(object):
         self.recursive_partition(nums, left, right)
 
 
+def quicksort(arr):
+    if len(arr) <= 1:
+        return arr
+    else:
+        pivot = arr[0]
+        left = [x for x in arr[1:] if x < pivot]
+        right = [x for x in arr[1:] if x >= pivot]
+        return quicksort(left) + [pivot] + quicksort(right)
+
+
 if __name__ == "__main__":
     nums = [1, 8, 5, 6, 2, 2, 3, 5, 6, 67]
     Solution().QuickSort(nums)
     print(nums)
+
+    # Example usage
+    unsorted_list = [64, 34, 25, 12, 22, 11, 90]
+    sorted_list = quicksort(unsorted_list)
+    print(sorted_list)
