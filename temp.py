@@ -1,18 +1,47 @@
-from hashlib import sha1
+from typing import List
+
+# Definition for singly-linked list.
 
 
-def compute_hash(email):
-    return sha1(email.encode('utf-8')).hexdigest()
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
 
-def compute_certificate_id(email):
-    email_clean = email.lower().strip()
-    return compute_hash(email_clean + '_')
+def getNthFromEnd(head: ListNode, n: int) -> ListNode:
+    fast = head
+    for _ in range(n):
+        fast = fast.next
+
+    slow = head
+    while fast:
+        fast = fast.next
+        slow = slow.next
+
+    return slow
 
 
-# cohort = 2023
-# course = 'mlops-zoomcamp'
-your_id = compute_hash('nelsonlin0321@gmail.com')
-print(your_id)
-# url = f"https://certificate.datatalks.club/{course}/{cohort}/{your_id}.pdf"
-# print(url)
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        nodeBeforeN = getNthFromEnd(head, n+1)
+        nodeBeforeN.next = nodeBeforeN.next.next
+        return head
+
+
+def convertArrayToLinkedList(nums: List[int]) -> ListNode:
+    if not nums:
+        return None
+    head = ListNode(val=nums[0])
+    head.next = convertArrayToLinkedList(nums=nums[1:])
+    return head
+
+
+if __name__ == "__main__":
+    nums = [1, 2, 3, 4, 5]
+    head = convertArrayToLinkedList(nums)
+    node = getNthFromEnd(head, 3)
+    print(node.val)
+    # while head:
+    #     print(head.val)
+    #     head = head.next
