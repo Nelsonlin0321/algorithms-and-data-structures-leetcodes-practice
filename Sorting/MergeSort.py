@@ -11,7 +11,7 @@ class Solution(object):
         left_arr = arr[:idx]
         right_arr = arr[idx:]
 
-        # conqure / combine
+        # conquer / combine
         # importance: further to split by recursive mergeSort function
         return self.merge(self.mergeSort(left_arr), self.mergeSort(right_arr))
 
@@ -24,11 +24,9 @@ class Solution(object):
             else:
                 res.append(right_arr.pop(0))
 
-        while left_arr:
-            res.append(left_arr.pop(0))
+        res.extend(left_arr)
+        res.extend(right_arr)
 
-        while right_arr:
-            res.append(right_arr.pop(0))
         return res
 
 
