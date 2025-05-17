@@ -24,7 +24,46 @@ class Solution:
                 if left > right:
                     nums[j + 1] = left
                     nums[j] = right
+"""
+Accepted
+89 / 89 testcases passed
+Nelson Lin
+Nelson Lin
+submitted at May 17, 2025 13:07
+Runtime
+0ms
+Beats100.00%
+Analyze Complexity
+Memory
+17.83MB
+Beats33.54%
+"""
 
+class Solution:
+    def sortColors(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        left = 0
+        right = len(nums)-1
+        p = 0 
+
+        while p <= right:
+
+            if nums[p] == 0:
+                nums[p],nums[left] =nums[left],nums[p]
+                left+=1
+
+            elif nums[p] == 2:
+                nums[p],nums[right] =nums[right],nums[p]
+                right-=1
+
+            elif nums[p]==1:
+                p+=1
+
+            if left>p:
+                p=left
+        
 
 var_list = [2, 3, 4, 5, 321, 1]
 solution = Solution()
