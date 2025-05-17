@@ -1,6 +1,17 @@
 """
-Runtime: 107 ms, faster than 83.13% of Python3 online submissions for Minimum Window Substring.
-Memory Usage: 14.8 MB, less than 74.28% of Python3 online submissions for Minimum Window
+Accepted
+268 / 268 testcases passed
+Nelson Lin
+Nelson Lin
+submitted at May 17, 2025 16:19
+Runtime
+119ms
+Beats40.87%
+Analyze Complexity
+Memory
+18.00MB
+Beats98.74%
+https://leetcode.com/problems/minimum-window-substring/submissions/1636204284/
 """
 
 class Solution:
