@@ -4,69 +4,53 @@ Memory Usage: 14.8 MB, less than 74.28% of Python3 online submissions for Minimu
 """
 
 class Solution:
-
     def minWindow(self, s: str, t: str) -> str:
-
         # base case
-
-        if t in s:
-            return t
+        if len(t)>len(s):
+            return ""
+        
+        #  char count dict of t string
+        t_char_dict = {}
+        for c in t:
+            t_char_dict[c] = t_char_dict.get(c,0)+1
+        
+        window_char_dict = {}
+        t_char_num = len(t_char_dict)
+        valid_n=0
 
         left = 0
         right = 0
 
-        target_dict = {}
-
-        target_num = len(set(t))
-
-        curr_num = 0
-        min_window = ""
-        min_length = float("inf")
-
-        for char in t:
-            if char not in target_dict:
-                target_dict[char] = 1
-            else:
-                target_dict[char] += 1
-
-        record_dict = {char: 0 for (char, freq) in target_dict.items()}
-
+        res = ""
+        sub_str_len = float("inf")
         while right < len(s):
+            c = s[right]
+            if c in t_char_dict:
+                window_char_dict[c] = window_char_dict.get(c,0)+1
+                if window_char_dict[c]==t_char_dict[c]:
+                    #  valid+=1
+                    valid_n+=1
+            
+            # shrink the window
+            while valid_n==t_char_num and left<=right:
+                #  update the res
+                len_ = right-left+1
+                if len_ <= sub_str_len:
+                    res = s[left:right+1]
+                    sub_str_len = len_
 
-            right_char = s[right]
+                # update the valid dict
+                c = s[left]
+                if c in t_char_dict:
+                    if window_char_dict[c]==t_char_dict[c]:
+                        valid_n-=1
+                    window_char_dict[c] = window_char_dict[c]-1
+                
+                left+=1
 
-            if right_char in target_dict:
-                # right 指针的更新操作
-                if record_dict[right_char] - target_dict[right_char] == -1:
-                    curr_num += 1
+            right+=1
 
-                record_dict[right_char] += 1
-
-            # left 只针对额缩小操作
-
-            while left < right + 1 and curr_num == target_num:
-                # 细节： right + 1 , 因为字符索引要加一，索引起点为零
-                min_window = s[left:right + 1] if (right - left + 1) < min_length else min_window
-                min_length = right - left + 1 if (right - left + 1) < min_length else min_length
-
-                left_char = s[left]
-                # left 指针的操作
-                if left_char in target_dict:
-                    # 细节： 判断 left 指针会不会 影响到 curr_num 满足 字符串的个数
-                    if record_dict[left_char] == target_dict[left_char]: # 假如在没有 减一之前是相等的，就会令满足的字符串个数少一
-                        curr_num -= 1
-
-                    # 只要在 记录的字典里，左字符都要减一
-                    record_dict[left_char] -= 1
-
-                left += 1
-
-            # 当 left 判断完后 right + 1
-            right += 1
-
-        return min_window
-
-
+        return res
 if __name__ == "__main__":
     s = "ADOBECODEBANC"
     t = "ABC"
